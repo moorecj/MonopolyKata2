@@ -54,6 +54,7 @@
     <Compile Include="BankerTests.cs" />
     <Compile Include="GameFactoryTests.cs" />
     <Compile Include="IoC\TestModule.cs" />
+    <Compile Include="JailerTests.cs" />
     <Compile Include="MathRandomPlayerShufflerTests.cs" />
     <Compile Include="PlayerMoverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

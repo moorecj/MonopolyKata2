@@ -72,6 +72,8 @@
     <Compile Include="IoC\PlayerModule.cs" />
     <Compile Include="IoC\SpaceModule.cs" />
     <Compile Include="PlayerMover.cs" />
+    <Compile Include="Players\IJailer.cs" />
+    <Compile Include="Players\Jailer.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Players\Token.cs" />
