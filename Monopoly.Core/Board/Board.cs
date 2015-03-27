@@ -55,7 +55,8 @@ namespace Monopoly.Core.Board
         {
             foreach (
                 var passedOver in
-                    from space in spaces let passedOver = space as INotifyPassedOver where passedOver != null select passedOver)
+                    from space in spaces let passedOver = space as INotifyPassedOver 
+                    where passedOver != null select passedOver)
             {
                 passedOver.RaisePassedOver(player);
             }

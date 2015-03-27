@@ -22,6 +22,7 @@ namespace Monopoly.Test
         private IBoardFactory boardFactory;
         private Mock<IBanker> mockBanker;
         private Mock<IJailer> mockJailer;
+        private Mock<ITaxCollector> mockTaxCollector;
         private Fixture fixture;
         private Player player1;
             
@@ -30,8 +31,9 @@ namespace Monopoly.Test
         {
             mockBanker = new Mock<IBanker>();
             mockJailer = new Mock<IJailer>();
+            mockTaxCollector = new Mock<ITaxCollector>();
             mockJailer.Setup(x => x.LockUp(It.IsAny<Player>()));
-            boardFactory = new BoardFactory(mockBanker.Object, mockJailer.Object);
+            boardFactory = new BoardFactory(mockBanker.Object, mockJailer.Object, mockTaxCollector.Object);
             board = boardFactory.Create();
             fixture = new Fixture();
             player1 = fixture.Create<Player>();

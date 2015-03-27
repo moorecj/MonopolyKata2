@@ -17,6 +17,7 @@ namespace Monopoly.Test
         private IBoard board;
         private IBanker banker;
         private IJailer jailer;
+        private ITaxCollector taxCollector;
         private IBoardFactory boardFactory;
 
         [SetUp]
@@ -24,8 +25,9 @@ namespace Monopoly.Test
         {
             player1 = new Player(Token.Automobile);
             banker = new Banker(new List<Player> { player1 });
+            taxCollector = new TaxCollector(banker);
             jailer = new Jailer();
-            boardFactory = new BoardFactory(banker, jailer);
+            boardFactory = new BoardFactory(banker, jailer, taxCollector);
             board = boardFactory.Create();
         }
 

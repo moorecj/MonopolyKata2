@@ -9,6 +9,7 @@ namespace Monopoly.Core.IoC
         public override void Load()
         {
             Bind<IBanker>().To<Banker>();
+            Bind<ITaxCollector>().To<TaxCollector>();
         }
     }
 }

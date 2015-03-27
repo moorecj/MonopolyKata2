@@ -12,12 +12,14 @@ namespace Monopoly.Core.Board
     {
         private readonly IBanker banker;
         private readonly IJailer jailer;
+        private readonly ITaxCollector taxCollector;
         private Dictionary<int, Space> spaces;
 
-        public BoardFactory(IBanker banker, IJailer jailer)
+        public BoardFactory(IBanker banker, IJailer jailer, ITaxCollector taxCollector)
         {
             this.banker = banker;
             this.jailer = jailer;
+            this.taxCollector = taxCollector;
             InitializeSpaces();
             InitializeHandlers();
         }
@@ -34,7 +36,7 @@ namespace Monopoly.Core.Board
                 { 0,  new Go()           },
                 { 1,  new EmptySpace()   },
                 { 2,  new EmptySpace()   },
-                { 3,  new EmptySpace()   },
+                { 3,  new IncomeTax()    },
                 { 4,  new EmptySpace()   },
                 { 5,  new EmptySpace()   },
                 { 6,  new EmptySpace()   },
@@ -69,7 +71,7 @@ namespace Monopoly.Core.Board
                 { 35, new EmptySpace()   },
                 { 36, new EmptySpace()   },
                 { 37, new EmptySpace()   },
-                { 38, new EmptySpace()   },
+                { 38, new LuxuryTax()    },
                 { 39, new EmptySpace()   }
             };
         }
@@ -80,6 +82,8 @@ namespace Monopoly.Core.Board
             // Maybe use custom attribute on handler classes?
             var goHandler = new GoHandler(banker, spaces[0] as Go);
             var goToJailHandler = new GoToJailHandler(spaces[29] as GoToJail, jailer);
+            var incomeTaxHandler = new IncomeTaxHandler(taxCollector, spaces[3] as IncomeTax);
+            var luxuryTaxHandler = new LuxuryTaxHandler(taxCollector, spaces[38] as LuxuryTax);
         }
     }
 }

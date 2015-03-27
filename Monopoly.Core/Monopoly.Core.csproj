@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Bank\Banker.cs" />
     <Compile Include="Bank\IBanker.cs" />
+    <Compile Include="Bank\ITaxCollector.cs" />
+    <Compile Include="Bank\TaxCollector.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Board\BoardFactory.cs" />
     <Compile Include="Board\IBoardFactory.cs" />
@@ -51,15 +53,20 @@
     <Compile Include="Board\Spaces\Go.cs" />
     <Compile Include="Board\IBoard.cs" />
     <Compile Include="Board\Spaces\GoToJail.cs" />
+    <Compile Include="Board\Spaces\IncomeTax.cs" />
     <Compile Include="Board\Spaces\JustVisiting.cs" />
+    <Compile Include="Board\Spaces\LuxuryTax.cs" />
     <Compile Include="Board\Spaces\Space.cs" />
     <Compile Include="Board\INotifyLandedOn.cs" />
     <Compile Include="Board\INotifyPassedOver.cs" />
     <Compile Include="Board\Spaces\SpaceHandlerAttribute.cs" />
+    <Compile Include="Board\Spaces\TaxSpace.cs" />
     <Compile Include="Errors\TooFewPlayersException.cs" />
     <Compile Include="Errors\TooManyPlayersException.cs" />
     <Compile Include="Events\Handlers\GoHandler.cs" />
     <Compile Include="Events\Handlers\GoToJailHandler.cs" />
+    <Compile Include="Events\Handlers\IncomeTaxHandler.cs" />
+    <Compile Include="Events\Handlers\LuxuryTaxHandler.cs" />
     <Compile Include="Events\Handlers\SpaceHandler.cs" />
     <Compile Include="Events\NotifyLandedOnEventArgs.cs" />
     <Compile Include="Events\NotifyPassedOverEventArgs.cs" />
