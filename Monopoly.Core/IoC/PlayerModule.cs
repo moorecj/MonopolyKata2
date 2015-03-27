@@ -8,7 +8,7 @@ namespace Monopoly.Core.IoC
     {
         public override void Load()
         {
-            Bind<ILocationManager>().To<PlayerMover>();
+            Bind<ILocationManager>().To<PlayerLocationManager>();
         }
     }
 }

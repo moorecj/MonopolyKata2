@@ -5,7 +5,13 @@ namespace Monopoly.Core.Board.Spaces
 {
     public class Go : Space, INotifyPassedOver
     {
+        public Go()
+        {
+            Name = "Go";
+        }
+
         public event NotifyPassedOver PassedOver;
+        
         public void RaisePassedOver(Player player)
         {
             var handler = PassedOver;

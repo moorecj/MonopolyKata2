@@ -18,12 +18,24 @@ namespace Monopoly.Core.Board
 
         public int Size { get { return spaces.Count; } }
 
-        public void HandleMoveTo(Player player, int location)
+        public int GetMove(Player player, int start, int numberToMove)
         {
-            HandleLandedOn(player, spaces[location]);
+            var endLocation = (start + numberToMove) % Size;
+
+            HandleMove(player, start, endLocation);
+
+            if (endLocation == GetSpaceLocation<GoToJail>())
+                endLocation = GetSpaceLocation<JustVisiting>();
+
+            return endLocation;
         }
 
-        public void HandleMove(Player player, int start, int end)
+        public int GetSpaceLocation<TSpace>() where  TSpace : Space
+        {
+            return spaces.First(s => s.Value.GetType() == typeof(TSpace)).Key;
+        }
+
+        private void HandleMove(Player player, int start, int end)
         {
             var inRange = GetSpaceInRange(start, end);
             var pasedOver = inRange as IList<Space> ?? inRange.ToList();
@@ -32,6 +44,11 @@ namespace Monopoly.Core.Board
                 HandlePassedOverSpaces(player, pasedOver);
 
             HandleLandedOn(player, spaces[end]);
+        }
+
+        public void LandOn(Player player, int location)
+        {
+            HandleLandedOn(player, spaces[location]);
         }
 
         private static void HandlePassedOverSpaces(Player player, IEnumerable<Space> spaces)

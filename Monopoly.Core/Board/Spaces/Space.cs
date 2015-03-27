@@ -5,6 +5,8 @@ namespace Monopoly.Core.Board.Spaces
 {
     public abstract class Space : INotifyLandedOn
     {
+        public string Name { get; protected set; }
+
         public event NotifyLandedOn LandedOn;
 
         public virtual void RaiseLandedOn(Player player)

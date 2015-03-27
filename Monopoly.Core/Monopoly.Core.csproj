@@ -50,6 +50,8 @@
     <Compile Include="Board\Spaces\EmptySpace.cs" />
     <Compile Include="Board\Spaces\Go.cs" />
     <Compile Include="Board\IBoard.cs" />
+    <Compile Include="Board\Spaces\GoToJail.cs" />
+    <Compile Include="Board\Spaces\JustVisiting.cs" />
     <Compile Include="Board\Spaces\Space.cs" />
     <Compile Include="Board\INotifyLandedOn.cs" />
     <Compile Include="Board\INotifyPassedOver.cs" />
@@ -57,6 +59,7 @@
     <Compile Include="Errors\TooFewPlayersException.cs" />
     <Compile Include="Errors\TooManyPlayersException.cs" />
     <Compile Include="Events\Handlers\GoHandler.cs" />
+    <Compile Include="Events\Handlers\GoToJailHandler.cs" />
     <Compile Include="Events\Handlers\SpaceHandler.cs" />
     <Compile Include="Events\NotifyLandedOnEventArgs.cs" />
     <Compile Include="Events\NotifyPassedOverEventArgs.cs" />
@@ -71,7 +74,7 @@
     <Compile Include="IoC\BankModule.cs" />
     <Compile Include="IoC\PlayerModule.cs" />
     <Compile Include="IoC\SpaceModule.cs" />
-    <Compile Include="PlayerMover.cs" />
+    <Compile Include="PlayerLocationManager.cs" />
     <Compile Include="Players\IJailer.cs" />
     <Compile Include="Players\Jailer.cs" />
     <Compile Include="Players\Player.cs" />

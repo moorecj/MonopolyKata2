@@ -5,16 +5,14 @@ using Monopoly.Core.Players;
 
 namespace Monopoly.Core
 {
-    public class PlayerMover : ILocationManager
+    public class PlayerLocationManager : ILocationManager
     {
         private readonly Dictionary<Player, int> locations;
-        private readonly int boardSize;
         private readonly IBoard board;
 
-        public PlayerMover(IEnumerable<Player> players, IBoard board)
+        public PlayerLocationManager(IEnumerable<Player> players, IBoard board)
         {
             this.board = board;
-            this.boardSize = board.Size;
             locations = new Dictionary<Player, int>();
 
             foreach (var player in players)
@@ -28,18 +26,14 @@ namespace Monopoly.Core
 
         public void Move(Player player, int number)
         {
-            var startingLocation = locations[player];
-            var endLocation = (locations[player] + number) % boardSize;
-            board.HandleMove(player, startingLocation, endLocation);
+            var endLocation = board.GetMove(player, locations[player], number);
 
             locations[player] = endLocation;
         }
 
         public void MoveTo(Player player, int location)
         {
-            locations[player] = location;
-            
-            board.HandleMoveTo(player, location);
+            locations[player] = board.GetMove(player, location, 0);
         }
     }
 }
