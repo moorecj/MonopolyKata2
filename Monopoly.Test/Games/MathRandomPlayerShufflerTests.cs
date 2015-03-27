@@ -6,7 +6,7 @@ using Monopoly.Core.Players;
 
 using NUnit.Framework;
 
-namespace Monopoly.Test
+namespace Monopoly.Test.Games
 {
     [TestFixture]
     public class MathRandomPlayerShufflerTests

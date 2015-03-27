@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using Monopoly.Core.Bank;
@@ -13,7 +12,7 @@ using NUnit.Framework;
 
 using Ploeh.AutoFixture;
 
-namespace Monopoly.Test
+namespace Monopoly.Test.Board
 {
     [TestFixture]
     public class BoardTests

@@ -11,7 +11,7 @@ using NUnit.Framework;
 
 using Ploeh.AutoFixture;
 
-namespace Monopoly.Test
+namespace Monopoly.Test.Games
 {
     [TestFixture]
     public class GameFactoryTests

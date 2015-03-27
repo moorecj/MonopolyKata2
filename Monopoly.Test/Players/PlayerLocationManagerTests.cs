@@ -10,7 +10,7 @@ using NUnit.Framework;
 
 using Ploeh.AutoFixture;
 
-namespace Monopoly.Test
+namespace Monopoly.Test.Players
 {
     [TestFixture]
     public class PlayerLocationManagerTests

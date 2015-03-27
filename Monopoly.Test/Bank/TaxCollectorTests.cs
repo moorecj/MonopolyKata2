@@ -9,7 +9,7 @@ using NUnit.Framework;
 
 using Ploeh.AutoFixture;
 
-namespace Monopoly.Test
+namespace Monopoly.Test.Bank
 {
     [TestFixture]
     public class TaxCollectorTests

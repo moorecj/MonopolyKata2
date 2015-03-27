@@ -7,7 +7,7 @@ using Monopoly.Core.Players;
 
 using NUnit.Framework;
 
-namespace Monopoly.Test
+namespace Monopoly.Test.Board
 {
     [TestFixture]
     public class SpaceTests

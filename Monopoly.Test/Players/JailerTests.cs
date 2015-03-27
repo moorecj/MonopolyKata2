@@ -6,9 +6,8 @@ using Monopoly.Core.Players;
 using Moq;
 
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 
-namespace Monopoly.Test
+namespace Monopoly.Test.Players
 {
     [TestFixture]
     public class JailerTests

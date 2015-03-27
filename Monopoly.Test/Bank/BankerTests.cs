@@ -5,7 +5,7 @@ using Monopoly.Core.Players;
 
 using NUnit.Framework;
 
-namespace Monopoly.Test
+namespace Monopoly.Test.Bank
 {
     [TestFixture]
     public class BankerTests
