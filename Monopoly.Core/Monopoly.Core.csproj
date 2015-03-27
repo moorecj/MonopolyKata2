@@ -45,6 +45,7 @@
     <Compile Include="Bank\Banker.cs" />
     <Compile Include="Bank\IBanker.cs" />
     <Compile Include="Bank\ITaxCollector.cs" />
+    <Compile Include="Bank\Properties\PropertyManager.cs" />
     <Compile Include="Bank\TaxCollector.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Board\BoardFactory.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Board\Spaces\IncomeTax.cs" />
     <Compile Include="Board\Spaces\JustVisiting.cs" />
     <Compile Include="Board\Spaces\LuxuryTax.cs" />
+    <Compile Include="Board\Spaces\PropertySpace.cs" />
     <Compile Include="Board\Spaces\Space.cs" />
     <Compile Include="Board\INotifyLandedOn.cs" />
     <Compile Include="Board\INotifyPassedOver.cs" />
