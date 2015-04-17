@@ -52,7 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bank\BankerTests.cs" />
+    <Compile Include="Bank\Properties\Decorators\ValidatesBalanceRealtorTests.cs" />
+    <Compile Include="Bank\Properties\Decorators\ValidatesOwnershipRealtorTests.cs" />
     <Compile Include="Bank\Properties\PropertyManagerTests.cs" />
+    <Compile Include="Bank\Properties\RealtorTests.cs" />
     <Compile Include="Bank\TaxCollectorTests.cs" />
     <Compile Include="Board\BoardTests.cs" />
     <Compile Include="Board\SpaceTests.cs" />

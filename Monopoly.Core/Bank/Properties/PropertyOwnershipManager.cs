@@ -10,7 +10,7 @@ using Monopoly.Core.Players;
 
 namespace Monopoly.Core.Bank.Properties
 {
-    public class PropertyOwnershipManager
+    public class PropertyOwnershipManager : IPropertyOwnershipManager
     {
         private readonly List<PropertyOwnership> propertyOwnerships;
 

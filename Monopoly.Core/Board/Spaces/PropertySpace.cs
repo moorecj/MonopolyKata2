@@ -6,6 +6,7 @@ namespace Monopoly.Core.Board.Spaces
     {
         public string Group { get; protected set; }
         public int BaseRent { get; protected set; }
+        public int Price { get; protected set; }
     }
 
 }
