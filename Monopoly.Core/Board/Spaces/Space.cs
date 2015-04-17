@@ -16,5 +16,23 @@ namespace Monopoly.Core.Board.Spaces
             if (handler != null)
                 handler(this, new NotifyLandedOnEventArgs(player));
         }
+
+        protected bool Equals(Space other)
+        {
+            return string.Equals(Name, other.Name);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Space) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (Name != null ? Name.GetHashCode() : 0);
+        }
     }
 }
