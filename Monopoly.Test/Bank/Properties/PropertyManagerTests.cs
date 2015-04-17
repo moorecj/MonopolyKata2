@@ -11,7 +11,7 @@ namespace Monopoly.Test.Bank.Properties
     [TestFixture]
     public class PropertyManagerTests
     {
-        private PropertyManager propertyManager;
+        private PropertyOwnershipManager propertyOwnershipManager;
         private Fixture fixture;
         private Player player;
         private PropertySpace space;
@@ -19,7 +19,7 @@ namespace Monopoly.Test.Bank.Properties
         [SetUp]
         public void Setup()
         {
-            propertyManager = new PropertyManager();
+            propertyOwnershipManager = new PropertyOwnershipManager();
             fixture = new Fixture();
             player = fixture.Create<Player>();
             space = fixture.Create<PropertySpace>();
@@ -28,82 +28,82 @@ namespace Monopoly.Test.Bank.Properties
         [Test]
         public void GetOwner_WhenThePropertyIsNotOwned_ReturnsNull()
         {
-            Assert.That(propertyManager.GetOwner(space), Is.Null);
+            Assert.That(propertyOwnershipManager.GetOwner(space), Is.Null);
         }
 
         [Test]
         public void GetOwner_WhenThePropertyIsOwned_ReturnsTheOwner()
         {
-            propertyManager.SetOwner(space, player);
+            propertyOwnershipManager.SetOwner(space, player);
 
-            Assert.That(propertyManager.GetOwner(space), Is.EqualTo(player));
+            Assert.That(propertyOwnershipManager.GetOwner(space), Is.EqualTo(player));
         }
 
         [Test]
         public void SetOwner_WhenTheSpaceIsOwned_ThrowsASpaceAlreadyOwnedException()
         {
-            propertyManager.SetOwner(space, fixture.Create<Player>());
-            Assert.Throws<PropertyManager.PropertyAlreadyOwnedException>(() => propertyManager.SetOwner(space, player));
+            propertyOwnershipManager.SetOwner(space, fixture.Create<Player>());
+            Assert.Throws<PropertyOwnershipManager.PropertyAlreadyOwnedException>(() => propertyOwnershipManager.SetOwner(space, player));
         }
 
         [Test]
         public void SetOwner_WhenThePropertyIsNotOwned_SetsTheOwner()
         {
-            Assert.That(propertyManager.GetOwner(space), Is.Null);
+            Assert.That(propertyOwnershipManager.GetOwner(space), Is.Null);
             
-            propertyManager.SetOwner(space, player);
+            propertyOwnershipManager.SetOwner(space, player);
 
-            Assert.That(propertyManager.GetOwner(space), Is.EqualTo(player));
+            Assert.That(propertyOwnershipManager.GetOwner(space), Is.EqualTo(player));
         }
 
         [Test]
         public void MortagingAProperty_ThatIsNotAlreadyMortaged_WillMortageTheProperty()
         {
-            propertyManager.SetOwner(space, player);
-            Assert.That(propertyManager.IsMortgaged(space), Is.False);
+            propertyOwnershipManager.SetOwner(space, player);
+            Assert.That(propertyOwnershipManager.IsMortgaged(space), Is.False);
 
-            propertyManager.Mortgage(space);
+            propertyOwnershipManager.Mortgage(space);
 
-            Assert.That(propertyManager.IsMortgaged(space), Is.True); 
+            Assert.That(propertyOwnershipManager.IsMortgaged(space), Is.True); 
         }
 
         [Test]
         public void MortgagingAProperty_WhenthePropertyIsAlreadyMortgaged_ThrowsAPropertyAlreadyMortgagedException()
         {
-            propertyManager.SetOwner(space, fixture.Create<Player>());
-            propertyManager.Mortgage(space);
+            propertyOwnershipManager.SetOwner(space, fixture.Create<Player>());
+            propertyOwnershipManager.Mortgage(space);
 
-            Assert.Throws<PropertyManager.PropertyAlreadyMortgagedException>(() => propertyManager.Mortgage(space));
+            Assert.Throws<PropertyOwnershipManager.PropertyAlreadyMortgagedException>(() => propertyOwnershipManager.Mortgage(space));
         }
 
         [Test]
         public void MortgagingAProperty_ThatIsNotOwned_ThrowsAPropertyNotOwnedException()
         {
-            Assert.Throws<PropertyManager.PropertyNotOwnedException>(() => propertyManager.Mortgage(space));
+            Assert.Throws<PropertyOwnershipManager.PropertyNotOwnedException>(() => propertyOwnershipManager.Mortgage(space));
         }
 
         [Test]
         public void UnmortgagingAOwnedProperty_ThatIsNotMortagaged_WillThrowANotMortgagedException()
         {
-            propertyManager.SetOwner(space, fixture.Create<Player>());
-            Assert.Throws<PropertyManager.PropertyNotMortgagedException>(() => propertyManager.Unmortgage(space));        
+            propertyOwnershipManager.SetOwner(space, fixture.Create<Player>());
+            Assert.Throws<PropertyOwnershipManager.PropertyNotMortgagedException>(() => propertyOwnershipManager.Unmortgage(space));        
         }
 
         [Test]
         public void UnmortgagingAProperty_ThatIsNotOwned_ThrowsAPropertyNotOwnedException()
         {
-            Assert.Throws<PropertyManager.PropertyNotOwnedException>(() => propertyManager.Unmortgage(space));   
+            Assert.Throws<PropertyOwnershipManager.PropertyNotOwnedException>(() => propertyOwnershipManager.Unmortgage(space));   
         }
 
         [Test]
         public void UnmortagingAProperty_ThatIsMortgaged_WillUnmortgageTheProperty()
         {
-            propertyManager.SetOwner(space,player);
-            propertyManager.Mortgage(space);
+            propertyOwnershipManager.SetOwner(space,player);
+            propertyOwnershipManager.Mortgage(space);
             
-            propertyManager.Unmortgage(space);
+            propertyOwnershipManager.Unmortgage(space);
 
-            Assert.That(propertyManager.IsMortgaged(space), Is.False);
+            Assert.That(propertyOwnershipManager.IsMortgaged(space), Is.False);
         }
     }
 }

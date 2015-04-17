@@ -45,7 +45,7 @@
     <Compile Include="Bank\Banker.cs" />
     <Compile Include="Bank\IBanker.cs" />
     <Compile Include="Bank\ITaxCollector.cs" />
-    <Compile Include="Bank\Properties\PropertyManager.cs" />
+    <Compile Include="Bank\Properties\PropertyOwnershipManager.cs" />
     <Compile Include="Bank\TaxCollector.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Board\BoardFactory.cs" />
