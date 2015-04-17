@@ -74,6 +74,7 @@
     <Compile Include="Events\Handlers\GoToJailHandler.cs" />
     <Compile Include="Events\Handlers\IncomeTaxHandler.cs" />
     <Compile Include="Events\Handlers\LuxuryTaxHandler.cs" />
+    <Compile Include="Events\Handlers\PropertySpaceHandler.cs" />
     <Compile Include="Events\Handlers\SpaceHandler.cs" />
     <Compile Include="Events\NotifyLandedOnEventArgs.cs" />
     <Compile Include="Events\NotifyPassedOverEventArgs.cs" />

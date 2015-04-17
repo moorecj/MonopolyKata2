@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using Monopoly.Core.Bank;
+using Monopoly.Core.Bank.Properties;
 using Monopoly.Core.Board;
 using Monopoly.Core.Board.Spaces;
 using Monopoly.Core.Players;
@@ -18,6 +19,7 @@ namespace Monopoly.Test.Board
         private IBanker banker;
         private IJailer jailer;
         private ITaxCollector taxCollector;
+        private IRealtor realtor;
         private IBoardFactory boardFactory;
 
         [SetUp]
@@ -27,7 +29,7 @@ namespace Monopoly.Test.Board
             banker = new Banker(new List<Player> { player1 });
             taxCollector = new TaxCollector(banker);
             jailer = new Jailer();
-            boardFactory = new BoardFactory(banker, jailer, taxCollector);
+            boardFactory = new BoardFactory(banker, jailer, taxCollector, realtor);
             board = boardFactory.Create();
         }
 

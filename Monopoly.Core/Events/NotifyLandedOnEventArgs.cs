@@ -1,5 +1,6 @@
 ﻿using System;
 
+using Monopoly.Core.Board.Spaces;
 using Monopoly.Core.Players;
 
 namespace Monopoly.Core.Events
@@ -10,9 +11,12 @@ namespace Monopoly.Core.Events
     {
         public Player Player { get; private set; }
 
-        public NotifyLandedOnEventArgs(Player player)
+        public Space Space { get; set; }
+
+        public NotifyLandedOnEventArgs(Player player, Space space = default(Space))
         {
             Player = player;
+            Space = space;
         }
     }
 }

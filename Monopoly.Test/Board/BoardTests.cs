@@ -2,6 +2,7 @@
 using System.Linq;
 
 using Monopoly.Core.Bank;
+using Monopoly.Core.Bank.Properties;
 using Monopoly.Core.Board;
 using Monopoly.Core.Board.Spaces;
 using Monopoly.Core.Players;
@@ -22,6 +23,7 @@ namespace Monopoly.Test.Board
         private Mock<IBanker> mockBanker;
         private Mock<IJailer> mockJailer;
         private Mock<ITaxCollector> mockTaxCollector;
+        private Mock<IRealtor> mockRealtor;
         private Fixture fixture;
         private Player player1;
             
@@ -31,8 +33,9 @@ namespace Monopoly.Test.Board
             mockBanker = new Mock<IBanker>();
             mockJailer = new Mock<IJailer>();
             mockTaxCollector = new Mock<ITaxCollector>();
+            mockRealtor = new Mock<IRealtor>();
             mockJailer.Setup(x => x.LockUp(It.IsAny<Player>()));
-            boardFactory = new BoardFactory(mockBanker.Object, mockJailer.Object, mockTaxCollector.Object);
+            boardFactory = new BoardFactory(mockBanker.Object, mockJailer.Object, mockTaxCollector.Object, mockRealtor.Object);
             board = boardFactory.Create();
             fixture = new Fixture();
             player1 = fixture.Create<Player>();

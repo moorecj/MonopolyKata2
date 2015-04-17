@@ -5,7 +5,7 @@ namespace Monopoly.Core.Board.Spaces
 {
     public abstract class Space : INotifyLandedOn
     {
-        public string Name { get; protected set; }
+        public string Name { get; set; }
 
         public event NotifyLandedOn LandedOn;
 
